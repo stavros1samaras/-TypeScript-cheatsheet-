@@ -216,3 +216,61 @@ enum Direction {
     Right = "RIGHT",
 }
 console.log(Direction.Up); // "UP"
+
+
+// -------------------------------------------------
+// ΣΗΜΕΙΩΣΗ: Τα παρακάτω ΔΕΝ υποστηρίζουν "<>"
+// -------------------------------------------------
+// 1. Απλές μεταβλητές: let myNumber: number = 1;
+// 2. Συναρτήσεις: function fn(x: number): string {}
+// 3. Object types μέσα σε type/interface (μένουν με ":")
+// 4. Tuples: let user: [string, number] = ["Alice", 25];
+// 5. Enums: enum MyEnum { A, B, C }
+// -------------------------------------------------
+
+console.log('Testing our first TypeScript file with <> style');
+
+
+// ---------------------------
+// Arrays με <>
+// ---------------------------
+
+let numbers: Array<number> = [1, 2, 3, 4, 5];
+numbers.forEach((num: number) => {
+    num = num + 1;
+    console.log(num);
+});
+
+let booleanArray: Array<boolean> = [true, false, true];
+console.log(`The booleanArray has length: ${booleanArray.length}`);
+
+let mixedArray: Array<number | string | boolean> = [1, "apple", true];
+
+let mixedArrayAny: Array<any> = [1, "apple", true];
+console.log(mixedArrayAny[1].toUpperCase());
+
+
+// ---------------------------
+// Objects σε Arrays με <>
+// ---------------------------
+
+let tomato = { name: 'Tomato', price: 2 };
+let potato = { name: 'Potato', price: 1 };
+let carrot = { name: 'Carrot' };
+
+let vegetables: Array<{ name: string; price?: number }> = [tomato, potato, carrot];
+console.log(vegetables);
+
+let vegetables2: Array<{ readonly name: string; readonly price?: number }> = [
+    { name: 'Tomato', price: 2 },
+    { name: 'Potato', price: 1 },
+    { name: 'Carrot' },
+];
+
+let vegetables3: ReadonlyArray<{ name: string; price?: number }> = [
+    { name: 'Tomato', price: 2 },
+    { name: 'Potato', price: 1 },
+    { name: 'Carrot' },
+];
+
+
